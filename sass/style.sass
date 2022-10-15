@@ -19,15 +19,16 @@ $fontFamyliPoppins: 'Poppins', sans-serif
 // ### Body
 $fontFamyliSans: 'Open Sans', sans-serif
 
-@mixin bgSectionTop($img)
+@mixin bgSectionTop($positionY, $img)
   content: ''
   width: 100%
   height: 140px
   display: block
   position: absolute
-  top: -140px
+  top: $positionY
   z-index: -1
   background-image: url($img)
+  background-repeat: no-repeat
 
 @mixin bgSectionBottom($img)
   width: 100%
@@ -38,6 +39,7 @@ $fontFamyliSans: 'Open Sans', sans-serif
   bottom: -125px
   background-image: url($img)
   z-index: -1
+  background-repeat: no-repeat
 
 @mixin btnStart()
   width: 250px
@@ -90,6 +92,8 @@ $fontFamyliSans: 'Open Sans', sans-serif
     margin: 25px 0 90px
     &:hover
       filter: saturate(.55) brightness(1.4) hue-rotate(9deg)
+  .header__mockups
+    max-width: 90%
 
 .main
   .main__informationNumbers
@@ -111,6 +115,8 @@ $fontFamyliSans: 'Open Sans', sans-serif
     justify-content: space-around
     align-items: center
     margin-block: 200px
+    padding: 0 20px
+    gap: 30px
     .section__information
       .information__title
         font-family: $fontFamyliPoppins
@@ -124,14 +130,14 @@ $fontFamyliSans: 'Open Sans', sans-serif
     &:nth-child(2)
       background: $VeryPaleBlue
       &::after
-        @include bgSectionTop($img: './../images/bg-section-top-desktop-1.svg')
+        @include bgSectionTop( -140px, './../images/bg-section-top-desktop-1.svg')
       &::before
         @include bgSectionBottom($img: './../images/bg-section-bottom-desktop-1.svg')
 
     &:nth-last-child(2)
       background: $VeryPaleBlue
       &::after
-        @include bgSectionTop($img: './../images/bg-section-top-desktop-2.svg')
+        @include bgSectionTop( 140px ,$img: './../images/bg-section-top-desktop-2.svg')
       &::before
         @include bgSectionBottom($img: './../images/bg-section-bottom-desktop-2.svg')
   .main__footer
@@ -144,7 +150,6 @@ $fontFamyliSans: 'Open Sans', sans-serif
       @include btnStart()
       &:hover
         filter: saturate(.55) brightness(1.4) hue-rotate(9deg)
-
 .footer
   position: relative
   background: $VeryDarkCyan
@@ -212,6 +217,7 @@ $fontFamyliSans: 'Open Sans', sans-serif
 
   .footer__newsletter
     max-width: 390px
+    margin-block-end: 60px
     .newsletter__title
       font-family: $fontFamyliPoppins
       font-size: 1.3rem
@@ -224,21 +230,25 @@ $fontFamyliSans: 'Open Sans', sans-serif
       display: flex
       justify-content: space-between
       align-items: flex-start
+      flex-wrap: wrap
       gap: 20px
-      .form__email
-        padding: 10px
-        width: 390px
-        outline: none
-        border: none
-        border-radius: 5px
-        color: $VeryDarkCyan
-      span
-        color: red
-        font-size: .9em
-        margin: 5px 0
-        display: inline-block
-        opacity: 0
-        transition: 1s
+      div
+        display: flex
+        flex-direction: column
+        .form__email
+          padding: 10px
+          width: 250px
+          outline: none
+          border: none
+          border-radius: 5px
+          color: $VeryDarkCyan
+        span
+          color: red
+          font-size: .9em
+          margin: 5px 0
+          display: inline-block
+          opacity: 0
+          transition: 1s
       .form__submit
         border: none
         background: $Pink
@@ -263,7 +273,45 @@ $fontFamyliSans: 'Open Sans', sans-serif
         font-family: $fontFamyliPoppins
         text-decoration: none
   &::after
-    @include bgSectionTop($img: './../images/bg-footer-top-desktop.svg')
+    @include bgSectionTop(142px,$img: './../images/bg-footer-top-desktop.svg')
     background-size: cover
     left: -50px
     width: calc( 100% + 50px )
+
+@media screen and ( max-width: 700px )
+  .header
+    padding: 70px 20px
+    .header__nav
+      .nav__logo
+        height: 25px
+      .nav__link
+        padding: 5px 10px
+  .main
+    .main__section
+      flex-wrap: wrap
+      text-align: center
+      &:nth-child(2)
+        flex-wrap: wrap-reverse
+      &:nth-last-child(2)
+        flex-wrap: wrap-reverse
+
+@media screen and ( max-width: 400px )
+  .main
+    .main__section
+      &:nth-child(2)
+        &::after
+          @include bgSectionTop(145px, './../images/bg-section-top-mobile-1.svg')
+        &::before
+          @include bgSectionBottom('./../images/bg-section-bottom-mobile-2.svg')
+      &:nth-last-child(2)
+        &::after
+          @include bgSectionTop(145px,$img: './../images/bg-section-top-mobile-2.svg')
+        &::before
+          @include bgSectionBottom($img: './../images/bg-section-bottom-mobile-2.svg')
+          background-position: center
+  .footer
+    &::after
+      @include bgSectionTop(145px,$img: './../images/bg-footer-top-mobile.svg')
+      background-size: contain
+      left: -50px
+      width: calc( 100% + 50px )
