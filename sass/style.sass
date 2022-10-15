@@ -1,44 +1,153 @@
-// # Front-end Style Guide
-
-// ## Layout
-
-// The designs were created to the following widths:
-
-// - Mobile: 375px
-// - Desktop: 1440px
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,700&family=Poppins:wght@700&display=swap')
 
 // ## Colors
-
 // ### Primary
-
-// - Pink: hsl(322, 100%, 66%)
-// - Light Pink: hsl(321, 100%, 78%)
-// - Light Red: hsl(0, 100%, 63%)
+$Pink: hsl(322, 100%, 66%)
+$LightPink: hsl(321, 100%, 78%)
+$LightRed: hsl(0, 100%, 63%)
 
 // ### Neutral
-
-// - Very Dark Cyan: hsl(192, 100%, 9%)
-// - Very Pale Blue: hsl(207, 100%, 98%)
+$VeryDarkCyan: hsl(192, 100%, 9%)
+$VeryPaleBlue: hsl(207, 100%, 98%)
 
 // ## Typography
-
 // ### Headings
+$fontFamyliPoppins: 'Poppins', sans-serif
 
 // - Family: [Poppins](https://fonts.google.com/specimen/Poppins)
 // - Weights: 700
-
 // ### Body
+$fontFamyliSans: 'Open Sans', sans-serif
 
-// - Family: [Open Sans](https://fonts.google.com/specimen/Open+Sans)
-// - Weights: 400, 600, 700
+@mixin bgSectionTop($img)
+  content: ''
+  width: 100%
+  height: 140px
+  display: block
+  position: absolute
+  top: -125px
+  z-index: -1
+  background-image: url($img)
 
-// ## Icons
+@mixin bgSectionBottom($img)
+  width: 100%
+  height: 140px
+  content: ''
+  display: block
+  position: absolute
+  bottom: -125px
+  background-image: url($img)
+  z-index: -1
 
-// For the social icons, you can use a font icon library. Some suggestions can be found below:
+@mixin btnStart()
+  width: 250px
+  padding: 10px
+  background: $Pink
+  text-align: center
+  color: white
+  text-decoration: none
+  border-radius: 40px
+  display: inline-block
 
-// - [Font Awesome](https://fontawesome.com/)
-// - [IcoMoon](https://icomoon.io/)
-// - [Ionicons](https://ionicons.com/)
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: $fontFamyliSans
 
-    //   .attribution { font-size: 11px; text-align: center; }
-    // .attribution a { color: hsl(228, 45%, 44%); }
+.header
+  padding: 70px 50px
+  display: flex
+  flex-direction: column
+  align-items: center
+  .header__nav
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 100%
+    .nav__logo
+      height: 35px
+    .nav__link
+      border: 1px solid $Pink
+      color: $Pink
+      text-decoration: none
+      padding: 5px 20px
+      border-radius: 30px
+  .header__title
+    text-align: center
+    color: $VeryDarkCyan
+    font-family: $fontFamyliPoppins
+    margin: 150px 0 20px
+  .header__information
+    text-align: center
+    max-width: 500px
+    font-weight: 600
+  .header__link
+    @include btnStart()
+    margin: 25px 0 90px
+
+.main
+  .main__informationNumbers
+    display: flex
+    justify-content: space-around
+    .informationNumbers__communities
+      display: flex
+      flex-direction: column
+      .communities__icon
+        width: 40px
+    .informationNumbers__messages
+      display: flex
+      flex-direction: column
+      .messages__icon
+        width: 40px
+  .main__section
+    position: relative
+    display: flex
+    justify-content: space-around
+    align-items: center
+    margin-block: 200px
+    .section__information
+      .information__title
+        font-family: $fontFamyliPoppins
+        margin-block-end: 20px
+      .information__details
+        max-width: 545px
+        font-weight: 600
+    .section__illustration
+      max-width: 350px
+
+    &:nth-child(2)
+      background: $VeryPaleBlue
+      &::after
+        @include bgSectionTop($img: './../images/bg-section-top-desktop-1.svg')
+      &::before
+        @include bgSectionBottom($img: './../images/bg-section-bottom-desktop-1.svg')
+
+    &:nth-last-child(2)
+      background: $VeryPaleBlue
+      &::after
+        @include bgSectionTop($img: './../images/bg-section-top-desktop-2.svg')
+      &::before
+        @include bgSectionBottom($img: './../images/bg-section-bottom-desktop-2.svg')
+  .main__footer
+    text-align: center
+    margin-block: 200px
+    .footer__title
+      font-family: $fontFamyliPoppins
+      margin-block-end: 25px
+    .footer__link
+      @include btnStart()
+
+
+.
+
+
+
+
+
+
+.attribution
+  font-size: 11px
+  text-align: center
+  a
+    color: hsl(228, 45%, 44%)

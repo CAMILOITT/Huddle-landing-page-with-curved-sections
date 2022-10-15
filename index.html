@@ -10,6 +10,7 @@
       href="./images/favicon-32x32.png"
     />
     <title>Frontend Mentor | Huddle landing page with curved sections</title>
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <header class="header">
@@ -30,33 +31,74 @@
         class="header__mockups"
       />
     </header>
-    <main>
-      <div>1.4k+ Communities Formed</div>
-      <div>2.7m+ Messages Sent</div>
-      <h2>Grow Together</h2>
-      <p>
-        Generate meaningful discussions with your audience and build a strong,
-        loyal community. Think of the insightful conversations you miss out on
-        with a feedback form.
-      </p>
-      <img src="" alt="" />
-
-      <img src="" alt="" />
-      <h2>Flowing Conversations</h2>
-      <p>
-        You wouldn't paginate a conversation in real life, so why do it online?
-        Our threads have just-in-time loading for a more natural flow.
-      </p>
-      <h2>Your Users</h2>
-      <p>
-        It takes no time at all to integrate Huddle with your app's
-        authentication solution. This means, once signed in to your app, your
-        users can start chatting immediately.
-      </p>
-      <img src="" alt="" />
-
-      <h2>Ready To Build Your Community?</h2>
-      <a href=""> Get Started For Free </a>
+    <main class="main">
+      <section class="main__informationNumbers">
+        <div class="informationNumbers__communities">
+          <img
+            src="./images/icon-communities.svg"
+            alt="icon communities"
+            class="communities__icon"
+          />
+          <span>1.4k+</span> Communities Formed
+        </div>
+        <div class="informationNumbers__messages">
+          <img
+            src="./images/icon-messages.svg"
+            alt="icon Messages"
+            class="messages__icon"
+          />
+          <span>2.7m+</span> Messages Sent
+        </div>
+      </section>
+      <section class="main__section main__section">
+        <div class="section__information">
+          <h2 class="information__title">Grow Together</h2>
+          <p class="information__details">
+            Generate meaningful discussions with your audience and build a
+            strong, loyal community. Think of the insightful conversations you
+            miss out on with a feedback form.
+          </p>
+        </div>
+        <img
+          src="./images/illustration-grow-together.svg"
+          alt="illustration grow together"
+          class="section__illustration"
+        />
+      </section>
+      <section class="main__section">
+        <img
+          src="./images/illustration-flowing-conversation.svg"
+          alt="illustration flow conversation"
+          class="section__illustration"
+        />
+        <div class="section__information">
+          <h2 class="information__title">Flowing Conversations</h2>
+          <p class="information__details">
+            You wouldn't paginate a conversation in real life, so why do it
+            online? Our threads have just-in-time loading for a more natural
+            flow.
+          </p>
+        </div>
+      </section>
+      <section class="main__section">
+        <div class="section__information">
+          <h2 class="information__title">Your Users</h2>
+          <p class="information__details">
+            It takes no time at all to integrate Huddle with your app's
+            authentication solution. This means, once signed in to your app,
+            your users can start chatting immediately.
+          </p>
+        </div>
+        <img
+          src="./images/illustration-your-users.svg"
+          alt="illustration your users"
+          class="section__illustration"
+        />
+      </section>
+      <section class="main__footer">
+        <h2 class="footer__title">Ready To Build Your Community?</h2>
+        <a href="#" class="footer__link"> Get Started For Free </a>
+      </section>
     </main>
     <footer>
       <img src="./images/logo.svg" alt="logo huddle" />
