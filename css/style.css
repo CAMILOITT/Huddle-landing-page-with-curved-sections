@@ -61,6 +61,7 @@
       width: 35px; }
     .main .main__informationNumbers .informationNumbers__communities .communities__informationNumber {
       color: #00252e;
+      font-weight: 400;
       text-align: center; }
       .main .main__informationNumbers .informationNumbers__communities .communities__informationNumber .informationNumbers__number {
         font-size: 3em;
