@@ -25,7 +25,7 @@ $fontFamyliSans: 'Open Sans', sans-serif
   height: 140px
   display: block
   position: absolute
-  top: -125px
+  top: -140px
   z-index: -1
   background-image: url($img)
 
@@ -138,16 +138,80 @@ $fontFamyliSans: 'Open Sans', sans-serif
     .footer__link
       @include btnStart()
 
+.footer
+  position: relative
+  background: $VeryDarkCyan
+  color: white
+  padding: 100px 50px
+  display: flex
+  justify-content: space-between
+  flex-wrap: wrap-reverse
+  font-size: .8em
+  .footer__informationContact
+    max-width: 300px
+    .informationContact__logo
+      height: 35px
+      fill: white
+    .informationContact__information
+      margin-block: 10px 30px
+    .informationContact__contact
+      .contact__phone
+        display: flex
+        align-items: center
+        gap: 10px
+        margin-block-end: 15px
+      .contact__email
+        display: flex
+        align-items: center
+        gap: 10px
+        font-weight: 400
 
-.
+    .informationContact__social
 
+  .footer__newsletter
+    max-width: 390px
+    .newsletter__title
+      font-family: $fontFamyliPoppins
+      font-size: 1.3rem
+      text-transform: uppercase
+    .newsletter__information
+      margin-block: 20px 25px
+      max-width: 300px
+    .newsletter__form
+      width: 100%
+      display: flex
+      justify-content: space-between
+      gap: 20px
+      .form__email
+        padding: 5px
+        width: 390px
+        outline: none
+        border: none
+        border-radius: 5px
+        color: $VeryDarkCyan
+      .form__submit
+        border: none
+        background: $Pink
+        color: white
+        padding: 10px 20px
+        outline: none
+        border-radius: 5px
+        cursor: pointer
 
-
-
-
-
-.attribution
-  font-size: 11px
-  text-align: center
-  a
-    color: hsl(228, 45%, 44%)
+  .footer__attribution
+    position: absolute
+    bottom: 10px
+    left: 50%
+    transform: translateX(-50%)
+    .attribution
+      font-size: 11px
+      text-align: center
+      a
+        color: $Pink
+        font-family: $fontFamyliPoppins
+        text-decoration: none
+  &::after
+    @include bgSectionTop($img: './../images/bg-footer-top-desktop.svg')
+    background-size: cover
+    left: -50px
+    width: calc( 100% + 50px )
