@@ -14,15 +14,13 @@ $VeryPaleBlue: hsl(207, 100%, 98%)
 // ### Headings
 $fontFamyliPoppins: 'Poppins', sans-serif
 
-// - Family: [Poppins](https://fonts.google.com/specimen/Poppins)
-// - Weights: 700
 // ### Body
 $fontFamyliSans: 'Open Sans', sans-serif
 
-@mixin bgSectionTop($positionY, $img)
+@mixin bgSectionTop($height, $positionY, $img)
   content: ''
   width: 100%
-  height: 140px
+  height: $height
   display: block
   position: absolute
   top: $positionY
@@ -99,16 +97,33 @@ $fontFamyliSans: 'Open Sans', sans-serif
   .main__informationNumbers
     display: flex
     justify-content: space-around
+    flex-wrap: wrap
+    gap: 20px
     .informationNumbers__communities
       display: flex
       flex-direction: column
       .communities__icon
-        width: 40px
+        width: 35px
+      .communities__informationNumber
+        color: $VeryDarkCyan
+        text-align: center
+        .informationNumbers__number
+          font-size: 3em
+          font-family: $fontFamyliPoppins
+          color: $VeryDarkCyan
     .informationNumbers__messages
       display: flex
       flex-direction: column
       .messages__icon
-        width: 40px
+        width: 35px
+      .messages__informationNumber
+        color: $VeryDarkCyan
+        font-weight: 400
+        text-align: center
+        .informationNumbers__number
+          font-size: 3em
+          font-family: $fontFamyliPoppins
+          color: $VeryDarkCyan
   .main__section
     position: relative
     display: flex
@@ -130,16 +145,16 @@ $fontFamyliSans: 'Open Sans', sans-serif
     &:nth-child(2)
       background: $VeryPaleBlue
       &::after
-        @include bgSectionTop( -140px, './../images/bg-section-top-desktop-1.svg')
+        @include bgSectionTop( 140px, -140px, './../images/bg-section-top-desktop-1.svg')
       &::before
-        @include bgSectionBottom($img: './../images/bg-section-bottom-desktop-1.svg')
+        @include bgSectionBottom( './../images/bg-section-bottom-desktop-1.svg')
 
     &:nth-last-child(2)
       background: $VeryPaleBlue
       &::after
-        @include bgSectionTop( 140px ,$img: './../images/bg-section-top-desktop-2.svg')
+        @include bgSectionTop( 140px, -140px , './../images/bg-section-top-desktop-2.svg')
       &::before
-        @include bgSectionBottom($img: './../images/bg-section-bottom-desktop-2.svg')
+        @include bgSectionBottom('./../images/bg-section-bottom-desktop-2.svg')
   .main__footer
     text-align: center
     margin-block: 200px
@@ -272,8 +287,9 @@ $fontFamyliSans: 'Open Sans', sans-serif
         color: $Pink
         font-family: $fontFamyliPoppins
         text-decoration: none
+
   &::after
-    @include bgSectionTop(142px,$img: './../images/bg-footer-top-desktop.svg')
+    @include bgSectionTop( 140px,  -140px, './../images/bg-footer-top-desktop.svg')
     background-size: cover
     left: -50px
     width: calc( 100% + 50px )
@@ -296,22 +312,34 @@ $fontFamyliSans: 'Open Sans', sans-serif
         flex-wrap: wrap-reverse
 
 @media screen and ( max-width: 400px )
+  .header
+    padding: 30px 10px
+    .header__title
+      margin: 100px 0 20px
   .main
     .main__section
+      .section__illustration
+        width: 90%
       &:nth-child(2)
         &::after
-          @include bgSectionTop(145px, './../images/bg-section-top-mobile-1.svg')
+          @include bgSectionTop(100px, -100px, './../images/bg-section-top-mobile-1.svg')
         &::before
           @include bgSectionBottom('./../images/bg-section-bottom-mobile-2.svg')
       &:nth-last-child(2)
         &::after
-          @include bgSectionTop(145px,$img: './../images/bg-section-top-mobile-2.svg')
+          @include bgSectionTop( 100px, -100px, './../images/bg-section-top-mobile-2.svg')
         &::before
-          @include bgSectionBottom($img: './../images/bg-section-bottom-mobile-2.svg')
+          @include bgSectionBottom( './../images/bg-section-bottom-mobile-2.svg')
           background-position: center
+          bottom: -120px
+
   .footer
+    padding: 100px 15px
+    .footer__informationContact
+      width: 100%
+    .footer__newsletter
+      width: 100%
     &::after
-      @include bgSectionTop(145px,$img: './../images/bg-footer-top-mobile.svg')
-      background-size: contain
+      @include bgSectionTop(60px,  -60px, './../images/bg-footer-top-mobile.svg')
       left: -50px
       width: calc( 100% + 50px )
